@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chuck Norris</title>
 </head>
 <body>
-    <h1>{{joke}}</h1>
+    <h1>{{ joke }}</h1>
 
-    
+    <h2> Статистика запросів:</h2>
+    <ul>
+        <li>GET- має {{ get }} запитів: </li>
+        <li>POST-має {{ post }} запитів: </li>
+
+    </ul>
+
+    <form method="post">
+        <button type="submit">Надіслати POST  запросс</button>
+    </form>
 </body>
 </html>
