@@ -12,7 +12,8 @@ total_post = 0
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    global total_get, total_post, home_visits
+
+    global total_get, total_post
 
     # GET/POST підщот
     if request.method == "GET":
@@ -23,11 +24,12 @@ def home():
     response = make_response(render_template("index.html", joke=requests.get("https://api.chucknorris.io/jokes/random"), get=total_get, post=total_post))
     
     if  request.cookies.get("id"):
-        response.set_cookie("bal",  str(int(request.cookies.get("bal")) + 1), httponly=True)
+        response.set_cookie("bal",  str(int(request.cookies.get("bal")) + 1))
         
     else:
-        response.set_cookie("id", str(randint(1000, 2000)), httponly=True)
-        response.set_cookie("bal", str(0), httponly=True)
+        response.set_cookie("id", str(randint(1000, 2000)))
+        response.set_cookie("bal", str(0))
+
 
     return response
 
