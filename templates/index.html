@@ -18,5 +18,13 @@
     <form method="post">
         <button type="submit">Надіслати POST  запросс</button>
     </form>
+
+
+    <br>
+    <h3>Joke by category: </h3>
+    {%for cat in categories%}
+        <a href="/category/{{cat}}" ><button>{{cat}}</button></a>
+    {%endfor%}
+
 </body>
 </html>

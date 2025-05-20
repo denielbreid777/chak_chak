@@ -21,7 +21,7 @@ def home():
     elif request.method == "POST":
         total_post += 1
 
-    response = make_response(render_template("index.html", joke=requests.get("https://api.chucknorris.io/jokes/random"), get=total_get, post=total_post))
+    response = make_response(render_template("index.html", joke=requests.get("https://api.chucknorris.io/jokes/random"), categories=requests.get("https://api.chucknorris.io/jokes/categories").json(), get=total_get, post=total_post))
     
     if  request.cookies.get("id"):
         response.set_cookie("bal",  str(int(request.cookies.get("bal")) + 1))
@@ -32,6 +32,14 @@ def home():
 
 
     return response
+
+
+@app.route("/category/<cat>")
+def by_category(cat):
+    return render_template("category.html", joke=f"https://api.chucknorris.io/jokes/random?category={cat}")
+
+
+
 
 
 app.run(debug=True)
