@@ -30,6 +30,11 @@ def home():
         response.set_cookie("id", str(randint(1000, 2000)))
         response.set_cookie("bal", str(0))
 
+    @app.route("/category/<cat>")
+    def by_category(cat):
+        return render_template("category.html", joke=f"https://api.chucknorris.io/jokes/random?category={cat}")
+
+
 
     return response
 
