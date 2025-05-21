@@ -34,4 +34,10 @@ def home():
     return response
 
 
+
+@app.route("/tenjokes")
+def ten_jokes():
+    return render_template("tenjokes.html", jokes=[requests.get("https://api.chucknorris.io/jokes/random").json()["value"] for _ in range(10)])
+
+
 app.run(debug=True)

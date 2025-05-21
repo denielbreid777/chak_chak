@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10 Жартів</title>
+</head>
+<body>
+    <h1>10 Жартів про Чака Норріса</h1>
+    <ul>
+        {% for joke in jokes %}
+            <li>{{ joke }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/"><button>Назад</button></a>
+</body>
+</html>
